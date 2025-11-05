@@ -11,7 +11,7 @@ Obtain frequency-balanced sets of animate and inanimate Swedish nouns with their
 
 **Main data sources:**
 - `stats_all.txt.zip` — large tab-separated corpus frequency file (from Språkbanken)
-- `saldo.xml` — Swedish lexicon in LMF format
+- `saldo.xml` — Swedish lexicon in LMF format (from Språkbanken)
 
 ---
 
@@ -37,7 +37,7 @@ zcat stats_all.txt.zip   | awk -F'\t' '$2 ~ /^NN/ && length($3) > 1 {print}'   |
 Use the `build_lemma_freq_animacy.py` script to:
 - parse `saldo.xml`,
 - trace each noun’s **semantic parent chain** (`primary` relations),
-- mark lemmas as **animate** if they ultimately descend from `människa`, `person`, `djur`, or `varelse`,
+- mark lemmas as **animate** if they ultimately descend from `människa`, `person`, or `djur`,
 - and output a table of frequencies with animacy labels and full semantic paths.
 
 ```bash
@@ -59,7 +59,7 @@ python3 build_lemma_freq_animacy.py   --saldo-xml saldo.xml   --stats stats_min1
 To get comparable animate / inanimate sets (balanced across frequency ranges):
 
 ```bash
-python3 sample_stratified_animacy.py   --tsv lemma_freq_animacy_paths.tsv   --n 50   --seed 43
+python3 sample_stratified_animacy.py   --tsv lemma_freq_animacy_paths.tsv   --n 50   --seed 42
 ```
 
 This produces:
@@ -90,6 +90,3 @@ Each file includes a mix of high-, mid-, and low-frequency words, so the overall
 
 ---
 
-**Author:**  
-Your Name – 2025  
-Licensed under MIT / CC-BY as appropriate.
