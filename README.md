@@ -1,4 +1,4 @@
-# Swedish Lemma Animacy and Frequency Sampling
+# Swedish Lemma Animacy and Frequency Sampling (slafs)
 
 This project extracts **Swedish nouns**, links them to **SALDO** lexical entries to determine **animacy** (animate vs. inanimate), and then draws **frequency-stratified samples** for linguistic or psycholinguistic analysis.
 
